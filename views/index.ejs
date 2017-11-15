@@ -1,0 +1,36 @@
+<% include partials/header %>
+
+<div class="ui main text container">
+        <div class="ui two cards">
+            <% itsystems.forEach(function(itsystem){ %>
+                <div class="ui card">
+                    <div class="content tooltip" id="<%= itsystem.apdexRating %>">
+                        <span class="tooltiptext"><%= itsystem.apdexRating %></span>
+                        <div class="header">
+                            <%= itsystem.name %>
+                            <div class="extra right floated">
+                                <%= itsystem.release %>
+                            </div>
+                        </div>
+                        <div class="meta">
+                            <span class="category"><%= itsystem.icto %></span>
+                            <span class="category right floated"><%= itsystem.created.toLocaleDateString() %></span>
+                        </div>
+                        <div class="description"><h1><%= itsystem.apdexValue %></h1></div>
+                    </div>
+                    <div class="extra content author">
+                        <div class="right floated">
+                            <%= itsystem.author %>
+                        </div>
+                        <a href="/itsystems/<%= itsystem._id %>/edit" class="ui button orange"><i class="icon edit"></i></a>
+                        <form id="delete" method="POST" action="/itsystems/<%= itsystem._id %>?_method=DELETE">
+                            <button class="ui button red"><i class="icon trash"></i></button>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>

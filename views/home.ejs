@@ -1,0 +1,99 @@
+<% include partials/header %>
+
+<div class="ui container">
+    <% var counter = 0 %>
+    <div class="ui accordion segment">
+        <% apdexValues.forEach(function(apdexValue){ %>
+            <div class="bars title <% if(counter == 0) { %> active <% } %> segment">
+                <span class="label"><i class="dropdown icon"></i><%= apdexValue.month %> (<%= apdexValue.amountEntries %>)</span>
+                <span id="excellent" class="tooltip" style="width: <%= apdexValue.amountExcellent/amountMaxEntries*100 %>%"><%= apdexValue.amountExcellent %><span class="tooltiptext">excellent</span></span>
+                <span id="good" class="tooltip" style="width: <%= apdexValue.amountGood/amountMaxEntries*100 %>%"><%= apdexValue.amountGood %><span class="tooltiptext">good</span></span>
+                <span id="fair" class="tooltip" style="width: <%= apdexValue.amountFair/amountMaxEntries*100 %>%"><%= apdexValue.amountFair %><span class="tooltiptext">fair</span></span>
+                <span id="poor" class="tooltip" style="width: <%= apdexValue.amountPoor/amountMaxEntries*100 %>%"><%= apdexValue.amountPoor %><span class="tooltiptext">poor</span></span>
+                <span id="unacceptable" class="tooltip" style="width: <%= apdexValue.amountUnacceptable/amountMaxEntries*100 %>%"><%= apdexValue.amountUnacceptable %><span class="tooltiptext">unacceptable</span></span>
+                <span id="invalid" class="tooltip" style="width: <%= apdexValue.amountInvalid/amountMaxEntries*100 %>%"><%= apdexValue.amountInvalid %><span class="tooltiptext">invalid</span></span>
+                <span id="void" style="width: <%= ((amountMaxEntries-apdexValue.amountEntries)/amountMaxEntries)*100 %>%"></span>
+            </div>
+            <div class="ui content <% if(counter == 0) { %> active <% } %> secondary segment">
+                <div class="ui horizontal segments">
+                    <div class="ui segment">
+                        <div class="ui list">
+                            <h3 class="textexcellent"><i class="star icon"></i> Excellent (<%= apdexValue.amountExcellent %>)</h3>
+                            <% for(var i=0; i<apdexValue.listExcellent.length; i++) { %>
+                                <div class="item">
+                                    <strong><%= apdexValue.listExcellent[i].name %>:</strong> 
+                                    <%= apdexValue.listExcellent[i].apdexValue %> 
+                                    (<%= apdexValue.listExcellent[i].release %>)
+                                </div>    
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui list">
+                            <h3 class="textgood"><i class="thumbs up icon"></i> Good (<%= apdexValue.amountGood %>)</h3>
+                            <% for(var i=0; i<apdexValue.listGood.length; i++) { %>
+                                <div class="item">
+                                    <strong><%= apdexValue.listGood[i].name %>:</strong> 
+                                    <%= apdexValue.listGood[i].apdexValue %> 
+                                    (<%= apdexValue.listGood[i].release %>)
+                                </div>   
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui list">
+                            <h3 class="textfair"><i class="meh icon"></i> Fair (<%= apdexValue.amountFair %>)</h3>
+                            <% for(var i=0; i<apdexValue.listFair.length; i++) { %>
+                                <div class="item">
+                                    <strong><%= apdexValue.listFair[i].name %>:</strong> 
+                                    <%= apdexValue.listFair[i].apdexValue %> 
+                                    (<%= apdexValue.listFair[i].release %>)
+                                </div>      
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui list">
+                            <h3 class="textpoor"><i class="warning sign icon"></i> Poor (<%= apdexValue.amountPoor %>)</h3>
+                            <% for(var i=0; i<apdexValue.listPoor.length; i++) { %>
+                                <div class="item">
+                                    <strong><%= apdexValue.listPoor[i].name %>:</strong> 
+                                    <%= apdexValue.listPoor[i].apdexValue %> 
+                                    (<%= apdexValue.listPoor[i].release %>)
+                                </div>      
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui list">
+                            <h3 class="textunacceptable"><i class="minus circle icon"></i> Unacceptable (<%= apdexValue.amountUnacceptable %>)</h3>
+                            <% for(var i=0; i<apdexValue.listUnacceptable.length; i++) { %>
+                                <div class="item">
+                                    <strong><%= apdexValue.listExcellent[i].name %>:</strong> 
+                                    <%= apdexValue.listUnacceptable[i].apdexValue %> 
+                                    (<%= apdexValue.listUnacceptable[i].release %>)
+                                </div>   
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <div class="ui list">
+                            <h3 class="textinvalid"><i class="lightning icon"></i> Invalid (<%= apdexValue.amountInvalid %>)</h3>
+                            <% for(var i=0; i<apdexValue.listInvalid.length; i++) { %>
+                                <div class="item">
+                                    <strong><%= apdexValue.listInvalid[i].name %>:</strong> 
+                                    <%= apdexValue.listInvalid[i].apdexValue %> 
+                                    (<%= apdexValue.listInvalid[i].release %>)
+                                </div>      
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO csv-download -->
+                <!--<a href="" class="ui button inverted blue"><i class="download icon"></i> Download als .csv</a>-->
+            </div>
+        <% counter++ }) %>
+    </div>
+</div>
+
+<% include partials/footer %>

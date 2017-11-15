@@ -1,0 +1,104 @@
+.bars {
+    color: white;
+    display: flex;
+    margin-top: 5px;
+}
+.label{
+    color: black;
+    background-color: white;
+    width: 175px;
+    margin-right: 10px;
+}
+.first{
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/*show apdex rating on hover*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #00b5ad;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 105%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #00b5ad transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.detail{
+    border: 1px solid black
+}
+
+/*colors for bars*/
+#excellent {
+    background-color: #21ba45;
+    float: left;
+}
+#good {
+    background-color: #b5cc18;
+}
+#fair {
+    background-color: #fbbd08;
+}
+#poor {
+    background-color: #f2711c;
+    color: white;
+}
+#unacceptable {
+    background-color: #db2828;
+    color: white;
+}
+#invalid {
+    background-color: #767676;
+    color: white;
+}
+#delete {
+    display: inline;
+}
+#void {
+    background-color: white;
+}
+.textexcellent {
+    color: #21ba45;
+}
+.textgood {
+    color: #b5cc18;
+}
+.textfair {
+    color: #fbbd08;
+}
+.textpoor {
+    color: #f2711c;
+}
+.textunacceptable {
+    color: #db2828;
+}
+.textinvalid {
+    color: #767676;
+}

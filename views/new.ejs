@@ -1,0 +1,32 @@
+<% include partials/header %>
+
+<div class="ui main text container">
+    <div class="ui top attached">
+        <form class="ui form" method="POST" action="/itsystems">
+            <h2>Anlage eines neuen IT-Systems</h2>
+            <div class="ui field">
+                <lable>Kurzname</lable>
+                <input type="text" placeholder="Kurzname" name="itsystem[name]">
+            </div>
+            <div class="ui field">
+                <lable>ICTO</lable>
+                <input type="text" placeholder="ICTO-9876" name="itsystem[icto]"> 
+            </div>
+            <div class="ui field">
+                <lable>Release</lable>
+                <input type="text" placeholder="X.Y.Z-1234" name="itsystem[release]">
+            </div>
+            <div class="ui field">
+                <lable>Apdex</lable>
+                <input type="text" placeholder="0.97" name="itsystem[apdexValue]">
+            </div>
+            <div class="ui field">
+                <button class="ui green inverted button"><i class="ui icon save circle"></i> IT-System anlegen</button>
+                <a href="/itsystems" class="ui red inverted button"><i class="ui icon remove circle"></i> Anlage verwerfen</a>
+            </div>
+            <div class="ui error message"></div>
+        </form>
+    </div>
+</div>
+
+<% include partials/footer %>

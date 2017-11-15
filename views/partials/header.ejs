@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ApdexRep</title>
+        <!--CSS-->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.css">
+        <link rel="stylesheet" type="text/css" href="/app.css">
+        <!--JS-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
+        <script type="text/javascript" src="/app.js"></script>
+    </head>
+    <body>
+        <div class="ui flex menu inverted">
+            <div class="ui header item">
+                <i class="fitted yellow history icon"></i>
+                <span class="first">ApdexRep</span>
+            </div>
+            <a class="ui item" href="/" id="title">Apdex Report</a>
+            <div class="ui dropdown item" tabindex="0">
+                IT-Systeme
+                <i class="dropdown icon"></i>
+                <div class="menu transition hidden" tabindex="-1">
+                    <!--TODO items don't always respond, proabably because link is only text and not whole div-->
+                    <a class="item" href="/itsystems"><i class="icon unordered list"></i> List</a>
+                    <a class="item" href="/itsystems/new"><i class="icon add green circle"></i> New</a></div>
+                </div>
+            </div>
+        </div>
+       
